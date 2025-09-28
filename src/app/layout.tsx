@@ -24,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-primary text-slate-300 antialiased selection:bg-amber-400/30 selection:text-amber-200`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-primary relative text-slate-300 antialiased selection:bg-amber-400/30 selection:text-amber-200`}
       >
         {children}
       </body>
