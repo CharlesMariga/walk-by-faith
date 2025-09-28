@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true, // Enable format on save,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always", // Enable ESLint fix on save for all autofixable problems
+    "source.organizeImports": "always"
+  },
+  // Enable custom tab label for the page.tsx and layout.tsx files
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - page.tsx",
+    "**/app/**/layout.tsx": "${dirname} - layout.tsx",
+    "**/app/**/*id*/page.tsx": "${dirname(1)} - page.tsx",
+    "**/app/**/*id*/layout.tsx": "${dirname} - layout.tsx"
+  }
+}
