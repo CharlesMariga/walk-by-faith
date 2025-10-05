@@ -1,13 +1,11 @@
 import Link from "next/link";
 
+import { HandCoins } from "lucide-react";
+
 import Logo from "./logo";
 import { Button } from "./ui/button";
 
 const NavLinks = [
-  {
-    href: "#impact",
-    label: "Impact",
-  },
   {
     href: "#about",
     label: "About",
@@ -53,13 +51,15 @@ export default function Nav() {
           <div className="hidden items-center gap-3 md:flex">
             <Button
               variant="secondary"
-              className="hover:bg-white/5 hover:text-white"
+              className="font-semibold hover:bg-white/5 hover:text-white"
               asChild
             >
               <a href="#partner">Partner With Us</a>
             </Button>
-            <Button asChild>
-              <a href="#donate">Donate Now</a>
+            <Button asChild className="font-semibold">
+              <a href="#donate">
+                <HandCoins /> Donate Now
+              </a>
             </Button>
           </div>
         </div>
