@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { SparklesIcon } from "lucide-react";
+import { HandCoins, SparklesIcon } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -49,13 +49,14 @@ export default function Hero() {
             >
               <a
                 href="#donate"
-                className="inline-flex items-center justify-center rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-300 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-300 active:scale-[0.98]"
               >
+                <HandCoins />
                 Donate Now
               </a>
               <a
-                href="#partner"
-                className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
               >
                 Partner With Us
               </a>

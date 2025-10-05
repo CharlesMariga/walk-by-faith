@@ -1,6 +1,6 @@
 export default function Impact() {
   return (
-    <section id="impact" className="relative">
+    <section id="about" className="relative">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div
           className="-mt-10 translate-y-6 rounded-2xl bg-white/5 shadow/10 ring-1 ring-white/10 backdrop-blur-sm transition-all duration-700 ease-out will-change-transform sm:-mt-14"

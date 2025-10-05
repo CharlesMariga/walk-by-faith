@@ -1,16 +1,10 @@
 import Image from "next/image";
 
-import {
-  BookOpenIcon,
-  CrossIcon,
-  HomeIcon,
-  UsersIcon,
-  UtensilsIcon,
-} from "lucide-react";
+import { CrossIcon, HomeIcon, UsersIcon, UtensilsIcon } from "lucide-react";
 
 export default function WhoWeAre() {
   return (
-    <section id="about" className="relative py-16 sm:py-20 lg:py-24">
+    <section className="relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div
@@ -53,15 +47,6 @@ export default function WhoWeAre() {
                 <span className="font-medium">👉 Our Vision:</span> To see Jesus
                 known, experienced, and glorified among all nations.
               </p>
-            </div>
-            <div className="mt-6">
-              <a
-                href="#more"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-              >
-                <BookOpenIcon className="h-4.5 w-4.5" />
-                Learn More About Us
-              </a>
             </div>
           </div>
           <div

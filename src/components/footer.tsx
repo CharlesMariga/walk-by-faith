@@ -20,16 +20,16 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-5">
             <a
-              href="#donate"
-              className="text-sm text-slate-300 transition-colors hover:text-white"
-            >
-              Give
-            </a>
-            <a
               href="#about"
               className="text-sm text-slate-300 transition-colors hover:text-white"
             >
               About
+            </a>
+            <a
+              href="#donate"
+              className="text-sm text-slate-300 transition-colors hover:text-white"
+            >
+              Give
             </a>
             <a
               href="#stories"
