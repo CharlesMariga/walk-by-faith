@@ -24,8 +24,8 @@ export default function Countdown() {
   });
 
   useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 14);
+    const targetDate = new Date("2025-10-13");
+    targetDate.setDate(targetDate.getDate());
     targetDate.setHours(0, 0, 0, 0);
 
     const calculateTimeLeft = () => {
