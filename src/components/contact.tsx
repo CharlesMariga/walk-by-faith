@@ -30,11 +30,11 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <MapPinIcon className="h-6 w-6 text-amber-300" />
                 <div className="text-slate-300">
-                  Walk By Faith Ministries
+                  220 E16 Street
                   <br />
-                  123 Hope Avenue, Suite 4
+                  Mishawaka, Indiana
                   <br />
-                  South Bend, Indiana 46615
+                  zip 46544
                   <br />
                   United States
                 </div>
@@ -43,8 +43,8 @@ export default function Contact() {
               {/* Phone */}
               <div className="flex items-start gap-3">
                 <PhoneIcon className="h-6 w-6 text-amber-300" />
-                <Link href="tel:+15742881234" className="text-slate-300">
-                  +1 (574) 288-1234
+                <Link href="tel:+15743867229" className="text-slate-300">
+                  +1 (574) 386-7229
                 </Link>
               </div>
 
@@ -55,7 +55,7 @@ export default function Contact() {
                   href="mailto:info@walkbyfaithministries.org"
                   className="text-slate-300"
                 >
-                  info@walkbyfaithministries.org
+                  walkbyfaithministry22@gmail.com
                 </Link>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Contact() {
                   Office Hours: Mon–Fri, 9:00–17:00 EAT
                 </p>
                 <Link
-                  href="https://maps.app.goo.gl/q7pL86tDFJqZCJ7Q9"
+                  href="https://maps.app.goo.gl/bZx9y91BV7twoiuX8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-md border border-white/10 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/5"
