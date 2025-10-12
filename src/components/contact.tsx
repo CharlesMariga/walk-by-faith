@@ -30,7 +30,7 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <MapPinIcon className="h-6 w-6 text-amber-300" />
                 <div className="text-slate-300">
-                  220 E16 Street
+                  220 East 16th Street
                   <br />
                   Mishawaka, Indiana
                   <br />
