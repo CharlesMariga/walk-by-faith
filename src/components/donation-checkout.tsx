@@ -17,6 +17,7 @@ import {
 
 import { createPaymentIntent } from "@/actions/stripe";
 import { Product } from "@/lib/donations";
+import { formatAmountForStripe } from "@/lib/stripe-helpers";
 
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { Button } from "./ui/button";
@@ -99,9 +100,20 @@ export default function DonationCheckout({
   const isPending =
     !["initial", "succeeded", "error"].includes(payment.status) || !stripe;
 
+  if (selectedAmount.priceInCents) {
+    console.log("updating amount", selectedAmount.priceInCents / 100);
+    elements?.update({
+      amount: formatAmountForStripe(selectedAmount.priceInCents / 100, "usd"),
+    });
+  }
+
   useEffect(() => {
-    if (customAmount >= 50) setCustomAmount(customAmount);
-  }, [customAmount]);
+    if (customAmount >= 50) {
+      elements?.update({
+        amount: formatAmountForStripe(customAmount, "usd"),
+      });
+    }
+  }, [customAmount, elements]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     try {
@@ -124,7 +136,12 @@ export default function DonationCheckout({
 
       // Create a PaymentIntent with the specified amount.
       const formData = new FormData();
-      formData.append("amount", customAmount.toString());
+      formData.append(
+        "amount",
+        selectedAmount.id === "donation-custom"
+          ? customAmount.toString()
+          : (selectedAmount.priceInCents / 100).toString()
+      );
 
       const { client_secret } = await createPaymentIntent(formData);
 

@@ -15,7 +15,7 @@ export default function ElementsProvider({
     <Elements
       stripe={getStripe()}
       options={{
-        amount: 5000,
+        amount: 50,
         mode: "payment",
         currency: "usd",
         appearance: {
