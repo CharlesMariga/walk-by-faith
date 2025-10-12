@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 import {
-  Elements,
   PaymentElement,
   useElements,
   useStripe,
@@ -18,7 +17,6 @@ import {
 
 import { createPaymentIntent } from "@/actions/stripe";
 import { Product } from "@/lib/donations";
-import { getStripe } from "@/lib/get-stripejs";
 
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { Button } from "./ui/button";
@@ -29,11 +27,6 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "./ui/input-group";
-
-interface DonationCheckoutProps {
-  selectedAmount: Product;
-  onChangeAmount: (amount: Product | null) => void;
-}
 
 interface ElementsForm {
   selectedAmount: Product;
@@ -88,7 +81,10 @@ const PaymentStatus = ({
   }
 };
 
-function ElementsForm({ selectedAmount, onChangeAmount }: ElementsForm) {
+export default function DonationCheckout({
+  selectedAmount,
+  onChangeAmount,
+}: ElementsForm) {
   const [customAmount, setCustomAmount] = useState<number>(50);
   const [payment, setPayment] = useState<{
     status: "initial" | "processing" | "error" | "succeeded";
@@ -217,32 +213,5 @@ function ElementsForm({ selectedAmount, onChangeAmount }: ElementsForm) {
         </Button>
       </form>
     </>
-  );
-}
-
-export default function DonationCheckout({
-  selectedAmount,
-  onChangeAmount,
-}: DonationCheckoutProps) {
-  return (
-    <Elements
-      stripe={getStripe()}
-      options={{
-        amount: 5000,
-        mode: "payment",
-        currency: "usd",
-        appearance: {
-          theme: "night",
-          variables: {
-            colorBackground: "#111827",
-          },
-        },
-      }}
-    >
-      <ElementsForm
-        selectedAmount={selectedAmount}
-        onChangeAmount={onChangeAmount}
-      />
-    </Elements>
   );
 }

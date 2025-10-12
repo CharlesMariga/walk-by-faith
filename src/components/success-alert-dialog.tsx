@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { useStripe } from "@stripe/react-stripe-js";
+
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -15,13 +17,19 @@ import {
 
 interface SuccessAlertDialogProps {
   payment: string;
+  paymentIntent: string;
+  paymentIntentClientSecret?: string;
 }
 
 export default function SuccessAlertDialog({
   payment,
+  paymentIntent,
 }: SuccessAlertDialogProps) {
   const [open, setOpen] = useState(payment === "success");
   const router = useRouter();
+  const stripe = useStripe();
+
+  if (!stripe || !paymentIntent) return null;
 
   const handleClose = () => {
     setOpen(false);

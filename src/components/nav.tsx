@@ -55,7 +55,7 @@ export default function Nav() {
               className="font-semibold hover:bg-white/5 hover:text-white"
               asChild
             >
-              <a href="#partner">Partner With Us</a>
+              <Link href="#contact">Partner With Us</Link>
             </Button>
             <DonationModal>
               <Button className="font-semibold">
