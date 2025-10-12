@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { HandCoins, SparklesIcon } from "lucide-react";
 
+import DonationModal from "./donation-modal";
+
 export default function Hero() {
   return (
     <section className="relative">
@@ -47,13 +49,15 @@ export default function Hero() {
               data-animate
               data-animate-delay="180"
             >
-              <a
-                href="#donate"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-300 active:scale-[0.98]"
-              >
-                <HandCoins />
-                Donate Now
-              </a>
+              <DonationModal>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-300 active:scale-[0.98]"
+                >
+                  <HandCoins />
+                  Donate Now
+                </button>
+              </DonationModal>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"

@@ -1,39 +1,90 @@
-import Image from "next/image";
+import Link from "next/link";
 
-import { HandCoins } from "lucide-react";
+import {
+  CreditCardIcon,
+  HandCoins,
+  LockIcon,
+  LucideIcon,
+  MailIcon,
+} from "lucide-react";
 
+import DonationModal from "./donation-modal";
 import { Button } from "./ui/button";
+
+type FeatureCardProps = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+function FeatureCard({ title, description, ...props }: FeatureCardProps) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-white/5 p-5 shadow-inner transition hover:border-white/20 hover:bg-white/10">
+      <h3 className="flex items-center gap-2 text-lg font-semibold text-white">
+        <props.icon className="size-4 text-amber-300" />
+        {title}
+      </h3>
+      <p className="mt-2 text-sm text-slate-300">{description}</p>
+    </div>
+  );
+}
 
 export default function Donate() {
   return (
-    <section id="donate" className="relative">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.pexels.com/photos/6647112/pexels-photo-6647112.jpeg"
-          alt="Donate"
-          className="h-full w-full object-cover object-center"
-          fill
-        />
-        <div className="absolute inset-0 bg-[#0B1B3D]/70" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#0B0F19]" />
-      </div>
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Be the reason a family smiles today
-            </h2>
-            <p className="mt-4 text-slate-100">
-              Together, we can reach the unreached, feed the hungry, and empower
-              the body of Christ.
-            </p>
-            <div className="mt-8">
-              <Button className="font-semibold">
-                <HandCoins /> Donate Now
-              </Button>
+    <section
+      id="donate"
+      className="relative border-t border-white/10 py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+        <div className="mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-8 shadow/10">
+          <div className="w-full space-y-6">
+            {/* Header */}
+            <div className="flex w-full items-center justify-baseline">
+              <div className="flex-1 space-y-2">
+                <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+                  Support our work
+                </h2>
+                <p className="text-base text-slate-300 sm:text-lg">
+                  Your donation helps us build and maintain community projects.
+                </p>
+              </div>
+              <DonationModal>
+                <Button className="font-semibold">
+                  <HandCoins />
+                  Donate Now
+                </Button>
+              </DonationModal>
+            </div>
+
+            {/* Why support  */}
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <FeatureCard
+                icon={LockIcon}
+                title="Fast & secure"
+                description="Payments are processed by Stripe."
+              />
+              <FeatureCard
+                icon={CreditCardIcon}
+                title="No card data stored"
+                description="Sensitive details never touch our servers."
+              />
+              <FeatureCard
+                icon={MailIcon}
+                title="Instant receipt"
+                description="You'll receive a confirmation by email."
+              />
             </div>
           </div>
         </div>
+        <p className="mt-12 text-center text-sm text-slate-400">
+          Looking for other ways to contribute?{" "}
+          <Link
+            href="#contact"
+            className="font-medium text-slate-100 underline-offset-4 transition hover:text-white hover:underline"
+          >
+            Get in touch.
+          </Link>
+        </p>
       </div>
     </section>
   );

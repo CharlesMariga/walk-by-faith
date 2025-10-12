@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { HandCoins } from "lucide-react";
 
+import DonationModal from "./donation-modal";
 import Logo from "./logo";
 import { Button } from "./ui/button";
 
@@ -26,7 +27,7 @@ const NavLinks = [
 
 export default function Nav() {
   return (
-    <header className="bg-primary/80 sticky top-0 z-50 backdrop-blur-lg">
+    <header className="bg-primary/80 sticky top-0 z-50 border-b border-white/10 backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="flex items-center justify-between py-5">
           {/* Logo */}
@@ -56,11 +57,11 @@ export default function Nav() {
             >
               <a href="#partner">Partner With Us</a>
             </Button>
-            <Button asChild className="font-semibold">
-              <a href="#donate">
+            <DonationModal>
+              <Button className="font-semibold">
                 <HandCoins /> Donate Now
-              </a>
-            </Button>
+              </Button>
+            </DonationModal>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ export default function WhoWeAre() {
                 </span>
               </li>
             </ul>
-            <div className="mt-6 rounded-lg border border-white/10 bg-white/5 p-4">
+            <div className="mt-6 rounded-xl border border-white/10 bg-white/5 p-4">
               <p className="text-slate-200">
                 <span className="font-medium">👉 Our Vision:</span> To see Jesus
                 known, experienced, and glorified among all nations.

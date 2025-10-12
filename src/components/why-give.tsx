@@ -20,11 +20,11 @@ const WhyGive = [
 
 export default function WyGive() {
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="relative border-t border-white/10 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Why With WBFM?
+            Why Give With WBFM?
           </h2>
           <p className="mt-4 text-center text-slate-300">
             Your support makes a difference in the lives of those we serve.
