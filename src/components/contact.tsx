@@ -78,19 +78,21 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-between border-t border-white/10 p-4">
-                <p className="text-xs text-slate-400">
+              <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 p-4 sm:flex-row">
+                <p className="w-full text-xs text-slate-400 sm:w-auto">
                   Office Hours: Mon–Fri, 9:00–17:00 EAT
                 </p>
-                <Link
-                  href="https://maps.app.goo.gl/bZx9y91BV7twoiuX8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md border border-white/10 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/5"
-                >
-                  Open in maps
-                  <ArrowRightIcon className="h-4 w-4 -rotate-45 text-slate-400" />
-                </Link>
+                <div className="w-full sm:w-auto">
+                  <Link
+                    href="https://maps.app.goo.gl/bZx9y91BV7twoiuX8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-white/10 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/5"
+                  >
+                    Open in maps
+                    <ArrowRightIcon className="h-4 w-4 -rotate-45 text-slate-400" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-10 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <div className="grid h-8 w-8 place-items-center rounded-md bg-[#0B1B3D] text-xs font-semibold tracking-tight text-white ring-1 ring-white/10">
+            <div className="bg-primary grid h-8 w-8 place-items-center rounded-md text-xs font-semibold tracking-tight text-white ring-1 ring-white/10 transition-all hover:ring-amber-400/40">
               W
             </div>
             <div>

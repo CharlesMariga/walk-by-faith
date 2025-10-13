@@ -39,8 +39,8 @@ export default function Donate() {
         <div className="mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-8 shadow/10">
           <div className="w-full space-y-6">
             {/* Header */}
-            <div className="flex w-full items-center justify-baseline">
-              <div className="flex-1 space-y-2">
+            <div className="flex w-full flex-col items-center justify-baseline gap-4 md:flex-row">
+              <div className="w-full flex-1 space-y-2">
                 <h2 className="text-3xl font-semibold text-white sm:text-4xl">
                   Support our work
                 </h2>
@@ -48,12 +48,14 @@ export default function Donate() {
                   Your donation helps us build and maintain community projects.
                 </p>
               </div>
-              <DonationModal>
-                <Button className="font-semibold">
-                  <HandCoins />
-                  Donate Now
-                </Button>
-              </DonationModal>
+              <div className="w-full md:w-auto">
+                <DonationModal>
+                  <Button className="font-semibold">
+                    <HandCoins />
+                    Donate Now
+                  </Button>
+                </DonationModal>
+              </div>
             </div>
 
             {/* Why support  */}

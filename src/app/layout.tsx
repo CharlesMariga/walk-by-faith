@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Walk By Faith Ministry",
+  title: "Walk By Faith Ministry | Outreach Programme",
   description: "Bringing Jesus and Hope to the Unreached",
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-primary relative text-slate-300 antialiased selection:bg-amber-400/30 selection:text-amber-200`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-primary relative overscroll-contain text-slate-300 antialiased selection:bg-amber-400/30 selection:text-amber-200`}
       >
         <ElementsProvider>{children}</ElementsProvider>
       </body>
