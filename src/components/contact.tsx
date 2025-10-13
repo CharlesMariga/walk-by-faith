@@ -9,6 +9,8 @@ import {
   SendIcon,
 } from "lucide-react";
 
+import indianapolisImg from "@/assets/images/indianapolis.webp";
+
 export default function Contact() {
   return (
     <section
@@ -65,10 +67,12 @@ export default function Contact() {
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
               <div className="relative aspect-[21/9]">
                 <Image
-                  src="https://images.unsplash.com/photo-1584385971010-71c147ba5dbd?q=80&w=2275&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={indianapolisImg}
                   alt="Contact"
                   className="h-full w-full object-cover object-center"
-                  fill
+                  width={2275}
+                  height={1704}
+                  placeholder="blur"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/30 via-black/0 to-black/0" />
                 <div className="absolute bottom-6 left-6 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-xs text-slate-200 backdrop-blur">

@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { HandCoins, SparklesIcon } from "lucide-react";
 
+import maasaiWomenImg from "@/assets/images/maasai-women.webp";
+
 import DonationModal from "./donation-modal";
 
 export default function Hero() {
@@ -9,12 +11,13 @@ export default function Hero() {
     <section className="relative">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1640119259111-acc19f7c38f2?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={maasaiWomenImg}
           alt="WBFM team with families—smiling and embracing"
           className="h-full w-full object-cover"
           sizes="100vw"
           priority
-          fill
+          width={2670}
+          height={1780}
         />
         <div className="bg-primary/70 absolute inset-0"></div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#0B0F19]"></div>

@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { CrossIcon, HomeIcon, UsersIcon, UtensilsIcon } from "lucide-react";
 
+import childrenImg from "@/assets/images/children.webp";
+
 export default function WhoWeAre() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-24">
@@ -56,11 +58,12 @@ export default function WhoWeAre() {
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={childrenImg}
                 alt="Serving together in rural communities"
                 className="h-full w-full scale-[1.02] object-cover transition-transform duration-700 hover:scale-[1.05]"
-                width={587}
-                height={440}
+                width={2062}
+                height={1638}
+                placeholder="blur"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-black/0"></div>
             </div>
