@@ -196,8 +196,8 @@ export default function DonationCheckout({
                   <InputGroupInput
                     placeholder="0.00"
                     type="number"
-                    min={50}
-                    step={10}
+                    min={5}
+                    step={5}
                     value={customAmount}
                     required
                     disabled={isPending}
@@ -211,12 +211,12 @@ export default function DonationCheckout({
             </>
           )}
         </FieldGroup>
-        {selectedAmount.priceInCents > 0 || customAmount >= 10 ? (
+        {selectedAmount.priceInCents > 0 || customAmount >= 5 ? (
           <PaymentElement />
         ) : (
           <div className="text-destructive bg-destructive/10 rounded-md p-2">
             <p>
-              The minimum amount for a successful transaction is $50. Please
+              The minimum amount for a successful transaction is $5. Please
               adjust your amount and try again.
             </p>
           </div>
