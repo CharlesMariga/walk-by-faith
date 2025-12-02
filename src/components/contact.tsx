@@ -54,7 +54,7 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <MailIcon className="h-6 w-6 text-amber-300" />
                 <Link
-                  href="mailto:info@walkbyfaithministries.org"
+                  href="mailto:walkbyfaithministry22@gmail.com"
                   className="text-slate-300"
                 >
                   walkbyfaithministry22@gmail.com

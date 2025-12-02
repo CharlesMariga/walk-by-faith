@@ -11,7 +11,7 @@ export default function Footer() {
             </div>
             <div>
               <div className="text-base font-semibold tracking-tight text-white">
-                Walk By Faith Ministries
+                Walk By Faith Ministry
               </div>
               <p className="text-xs text-slate-400">
                 Bringing Jesus and Hope to the Unreached
@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-6 text-xs text-slate-500">
-          &copy; <span id="year"></span> Walk By Faith Ministries. All rights
+          &copy; <span id="year"></span> Walk By Faith Ministry. All rights
           reserved. | Created by{" "}
           <Link
             href="https://charlesnjenga.com"

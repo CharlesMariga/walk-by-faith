@@ -17,9 +17,9 @@ export default function WhoWeAre() {
               Who We Are
             </h2>
             <p className="mt-5 leading-relaxed text-slate-300">
-              Walk By Faith Ministries, founded by Pastor Samuel Mariga Nganga
-              and Pastor Teresia Nganga, is dedicated to reaching the unreached
-              with the love of Christ. We travel to interior and rural areas
+              Walk By Faith Ministry, founded by Pastor Samuel Mariga Nganga and
+              Pastor Teresia Nganga, is dedicated to reaching the unreached with
+              the love of Christ. We travel to interior and rural areas
               worldwide to:
             </p>
             <ul className="mt-6 space-y-3">
