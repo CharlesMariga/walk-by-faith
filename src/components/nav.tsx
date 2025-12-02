@@ -25,6 +25,10 @@ const NavLinks = [
     label: "Stories",
   },
   {
+    href: "#gallery",
+    label: "Gallery",
+  },
+  {
     href: "#contact",
     label: "Contact",
   },

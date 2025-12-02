@@ -1,6 +1,7 @@
 import Contact from "@/components/contact";
 import Donate from "@/components/donate";
 import Footer from "@/components/footer";
+import Gallery from "@/components/gallery";
 import Hero from "@/components/hero";
 import Impact from "@/components/impact";
 import Stories from "@/components/stories";
@@ -36,6 +37,7 @@ export default async function Home({
       <Donate />
       <WyGive />
       <Stories />
+      <Gallery />
       <Contact />
       <Footer />
     </>
