@@ -10,7 +10,7 @@ export default function WhoWeAre() {
     <section id="about" className="relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Founders Section */}
-        <div className="mt-24 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-0 grid items-center gap-10 md:mt-20 lg:grid-cols-2 lg:gap-16">
           <div
             className="order-1 translate-y-6 transition-all duration-700 ease-out will-change-transform"
             data-animate
