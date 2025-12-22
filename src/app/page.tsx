@@ -36,8 +36,8 @@ export default async function Home({
       <WhoWeAre />
       <Donate />
       <WyGive />
-      <Stories />
       <Gallery />
+      <Stories />
       <Contact />
       <Footer />
     </>

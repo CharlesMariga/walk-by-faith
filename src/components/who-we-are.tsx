@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CrossIcon, HomeIcon, UsersIcon, UtensilsIcon } from "lucide-react";
 
 import childrenImg from "@/assets/images/children.webp";
-import foundersImg from "@/assets/images/teresiah-sam.jpeg";
+import foundersImg from "@/assets/images/teresiah-sam-7.jpeg";
 
 export default function WhoWeAre() {
   return (
