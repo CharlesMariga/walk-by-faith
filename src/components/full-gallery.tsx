@@ -4,21 +4,16 @@ import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { PlayCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, PlayCircle } from "lucide-react";
 
 import conf2 from "@/assets/images/2022-conference-2.jpeg";
 import conf3 from "@/assets/images/2022-conference-3.jpeg";
-import conf4 from "@/assets/images/2022-conference-4.jpeg";
 import conf1 from "@/assets/images/2022-conference.jpeg";
 import whatsapp1 from "@/assets/images/WhatsApp Image 2025-12-04 at 05.02.49.jpeg";
 import whatsapp2 from "@/assets/images/WhatsApp Image 2025-12-04 at 05.04.48.jpeg";
-import children from "@/assets/images/children.webp";
-import maasaiWomen from "@/assets/images/maasai-women.webp";
 import miranda4 from "@/assets/images/miranda-4.jpeg";
 import miranda7 from "@/assets/images/miranda-7.jpeg";
-import nairobi1 from "@/assets/images/nairobi-home-fellowship-1.jpeg";
 import nairobi2 from "@/assets/images/nairobi-home-fellowship-2.jpeg";
-import nairobi4 from "@/assets/images/nairobi-home-fellowship-4.jpeg";
 import pastors from "@/assets/images/pasters-in-kenya.jpeg";
 import sam2 from "@/assets/images/sam-2.jpeg";
 import sam3 from "@/assets/images/sam-3.jpeg";
@@ -35,10 +30,8 @@ import teresiah6 from "@/assets/images/teresiah-6.jpeg";
 import teresiahSam2 from "@/assets/images/teresiah-sam-2.jpeg";
 import teresiahSam3 from "@/assets/images/teresiah-sam-3.jpeg";
 import teresiahSam4 from "@/assets/images/teresiah-sam-4.jpeg";
-import teresiahSam7 from "@/assets/images/teresiah-sam-7.jpeg";
 import teresiahSam from "@/assets/images/teresiah-sam.jpeg";
 import teresiahSamp6 from "@/assets/images/teresiah-samp-6.jpeg";
-import visiting2 from "@/assets/images/visiting-old-people-in-africa-2.jpeg";
 import visiting3 from "@/assets/images/visiting-old-people-in-africa-3.jpeg";
 import visiting4 from "@/assets/images/visiting-old-people-in-africa-4.jpeg";
 import visiting1 from "@/assets/images/visiting-old-people-in-africa.jpeg";
@@ -72,20 +65,6 @@ const galleryItems: GalleryItem[] = [
     videoUrl: "https://www.youtube.com/embed/0yMgOvB-_TQ",
   },
   {
-    id: "3",
-    type: "image",
-    src: children,
-    title: "Our Children",
-    category: "images",
-  },
-  {
-    id: "4",
-    type: "image",
-    src: nairobi1,
-    title: "Nairobi Home Fellowship",
-    category: "images",
-  },
-  {
     id: "5",
     type: "video",
     src: "https://img.youtube.com/vi/jCL5Z21UDfY/hqdefault.jpg",
@@ -98,20 +77,6 @@ const galleryItems: GalleryItem[] = [
     type: "image",
     src: pastors,
     title: "Pastors in Kenya",
-    category: "images",
-  },
-  {
-    id: "7",
-    type: "image",
-    src: visiting2,
-    title: "Visiting the Elderly",
-    category: "images",
-  },
-  {
-    id: "8",
-    type: "image",
-    src: maasaiWomen,
-    title: "Maasai Women",
     category: "images",
   },
   {
@@ -128,20 +93,6 @@ const galleryItems: GalleryItem[] = [
     title: "Testimonial",
     category: "videos",
     videoUrl: "https://www.youtube.com/embed/s6ZSTeAKsD4",
-  },
-  {
-    id: "11",
-    type: "image",
-    src: nairobi4,
-    title: "Fellowship Gathering",
-    category: "images",
-  },
-  {
-    id: "12",
-    type: "image",
-    src: conf4,
-    title: "Grace Witnessed",
-    category: "images",
   },
   {
     id: "13",
@@ -197,13 +148,6 @@ const galleryItems: GalleryItem[] = [
     type: "image",
     src: sam9,
     title: "Sam in the Field",
-    category: "images",
-  },
-  {
-    id: "21",
-    type: "image",
-    src: teresiahSam7,
-    title: "Teresiah and Sam",
     category: "images",
   },
   {
@@ -386,11 +330,30 @@ const galleryItems: GalleryItem[] = [
 
 export default function FullGallery() {
   const [filter, setFilter] = useState<"all" | "images" | "videos">("all");
-  const [selectedVideo, setSelectedVideo] = useState<GalleryItem | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const filteredItems = galleryItems.filter((item) =>
     filter === "all" ? true : item.category === filter
   );
+
+  const selectedItem =
+    selectedIndex !== null ? filteredItems[selectedIndex] : null;
+
+  const handlePrevious = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex(
+        (selectedIndex - 1 + filteredItems.length) % filteredItems.length
+      );
+    }
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % filteredItems.length);
+    }
+  };
 
   return (
     <section className="py-24 sm:py-32">
@@ -429,7 +392,7 @@ export default function FullGallery() {
           className="columns-1 gap-4 space-y-4 sm:columns-2 lg:columns-3"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 layout
@@ -438,9 +401,7 @@ export default function FullGallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 className="group relative cursor-pointer break-inside-avoid overflow-hidden rounded-2xl bg-zinc-900"
-                onClick={() =>
-                  item.type === "video" ? setSelectedVideo(item) : null
-                }
+                onClick={() => setSelectedIndex(index)}
               >
                 {item.type === "image" ? (
                   <Image
@@ -477,26 +438,90 @@ export default function FullGallery() {
         </motion.div>
       </div>
 
-      {/* Video Modal */}
+      {/* Lightbox Modal */}
       <Dialog
-        open={!!selectedVideo}
-        onOpenChange={(open) => !open && setSelectedVideo(null)}
+        open={selectedIndex !== null}
+        onOpenChange={(open) => !open && setSelectedIndex(null)}
       >
-        <DialogContent className="max-w-4xl overflow-hidden border-white/10 bg-slate-900 p-0">
+        <DialogContent className="max-w-[95vw] overflow-hidden border-white/10 bg-slate-900 p-0 sm:rounded-3xl lg:max-w-7xl">
           <DialogHeader className="sr-only">
-            <DialogTitle>{selectedVideo?.title}</DialogTitle>
+            <DialogTitle>{selectedItem?.title}</DialogTitle>
           </DialogHeader>
-          {selectedVideo?.videoUrl && (
-            <div className="aspect-video w-full">
-              <iframe
-                src={selectedVideo.videoUrl}
-                title={selectedVideo.title}
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+
+          <div className="relative flex min-h-[70vh] flex-col items-center justify-center bg-black/40 lg:min-h-[85vh]">
+            {/* Navigation Buttons */}
+            <button
+              onClick={handlePrevious}
+              className="absolute left-4 z-50 rounded-full bg-black/50 p-2 text-white transition-all hover:bg-amber-400 hover:text-slate-900"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-4 z-50 rounded-full bg-black/50 p-2 text-white transition-all hover:bg-amber-400 hover:text-slate-900"
+              aria-label="Next"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Content Area */}
+            <div className="flex w-full flex-col">
+              <div className="relative flex aspect-video w-full items-center justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedItem?.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex h-full w-full items-center justify-center p-4 sm:p-8"
+                  >
+                    {selectedItem?.type === "video" ? (
+                      <iframe
+                        src={`${selectedItem.videoUrl}?autoplay=1`}
+                        title={selectedItem.title}
+                        className="h-full w-full rounded-xl shadow-2xl"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div className="relative h-full w-full">
+                        <Image
+                          src={selectedItem?.src || ""}
+                          alt={selectedItem?.title || ""}
+                          className="h-full w-full object-contain"
+                          fill
+                          sizes="(max-width: 1280px) 100vw, 1280px"
+                          priority
+                        />
+                      </div>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Modal Footer Info */}
+              <div className="bg-slate-900/80 p-6 backdrop-blur-md">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      {selectedItem?.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-400">
+                      {selectedItem?.type === "video"
+                        ? "Video Presentation"
+                        : "Photo Gallery"}
+                    </p>
+                  </div>
+                  <div className="text-sm font-medium text-amber-400">
+                    {selectedIndex !== null ? selectedIndex + 1 : 0} /{" "}
+                    {filteredItems.length}
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
+          </div>
         </DialogContent>
       </Dialog>
     </section>
